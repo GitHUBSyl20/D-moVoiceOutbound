@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/api/debug",
+      "destination": "/api/debug"
+    },
+    {
+      "source": "/test-root",
+      "destination": "/api/test-root"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/index"
     },
