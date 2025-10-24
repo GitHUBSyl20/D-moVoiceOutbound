@@ -62,8 +62,13 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(`Make sure to configure your environment variables in .env file`);
-});
+// For Vercel serverless deployment
+module.exports = app;
 
+// For local development
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Make sure to configure your environment variables in .env file`);
+  });
+}
